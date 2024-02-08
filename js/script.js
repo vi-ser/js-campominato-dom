@@ -15,6 +15,7 @@ Quando si clicca su una bomba e finisce la partita, il software scopre tutte le 
 const gridElement = document.querySelector("#grid");
 const startButton = document.querySelector("#start");
 const difficultyEl = document.querySelector("#difficulty");
+const scoreEl = document.querySelector("#score");
 
 const bombCells = [];
 const bombNumber = 16;
@@ -124,6 +125,7 @@ startButton.addEventListener("click",
                         newCell.classList.add("active");
                         score++;
                         console.log("Punteggio: ", score);
+                        scoreEl.innerHTML = score.toString().padStart(5, "0");
 
                         // vittoria
                         if (score == maxScore) {
