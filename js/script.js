@@ -43,6 +43,9 @@ startButton.addEventListener("click",
         // rimuovo griglia precedente (se c'è)
         gridElement.innerHTML = "";
 
+        // Svuoto l'array delle celle bomba
+        bombCells.length = 0;
+
         // dichiaro la dimensione della griglia
         let gridSize;
 
@@ -59,6 +62,8 @@ startButton.addEventListener("click",
             gridSize = 100;
         }
 
+        // genero i numeri delle celle bomba
+        bombMaker(gridSize);
 
         // generazione griglia
         for (let i = 0; i < gridSize; i++) {
@@ -105,9 +110,6 @@ startButton.addEventListener("click",
             // aggiungo cella alla griglia
             gridElement.append(newCell);
         }
-
-        // inserisco le celle bomba
-        bombMaker(gridSize);
 
     }
 )
