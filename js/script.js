@@ -18,6 +18,7 @@ const difficultyEl = document.querySelector("#difficulty");
 const scoreEl = document.querySelector("#score");
 const gameOver = document.querySelector("#gameover");
 const restartEl = document.querySelector("#restart");
+const textGameOver = document.querySelector("#text-gameover");
 
 const bombCells = [];
 const bombNumber = 16;
@@ -129,12 +130,18 @@ startButton.addEventListener("click",
                         // coloro la casella al click
                         newCell.classList.add("active");
                         score++;
-                        console.log("Punteggio: ", score);
                         scoreEl.innerHTML = score.toString().padStart(5, "0");
 
                         // vittoria
                         if (score == maxScore) {
                             console.log("Complimenti, hai vinto!");
+
+                            gameOver.classList.replace("d-none", "d-flex");
+                            gameOver.style.backgroundColor = "#4affc0c9";
+                            textGameOver.innerHTML = "CONGRATULATION, YOU WIN!";
+                            textGameOver.classList.replace("text-white", "my_colorblue");
+
+                            restartEl.addEventListener("click", playAgain);
                         }
                     }
 
@@ -164,7 +171,7 @@ function bombMaker(size) {
             bombCells.push(bomb);
         }
     }
-    console.log("Bombe: ", bombCells);
+    console.log("Bombe in ordine crescente:", bombCells.sort((a, b) => a - b));
 }
 
 
