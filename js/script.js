@@ -26,8 +26,6 @@ const bombNumber = 16;
 let score = 0;
 let maxScore;
 
-let bombClicked = false;
-
 // difficoltà di default su "easy"
 let selectedValue = difficultyEl.value;
 console.log(selectedValue);
@@ -116,9 +114,8 @@ startButton.addEventListener("click",
                     if (bombCells.includes(i + 1)) {
                         console.log("Puff!");
 
-                        // il flag diventa true (utile per decretare la fine del gioco)
-                        bombClicked = true;
-                        newCell.classList.add("bomb");
+                        // Mostra tutte le bombe
+                        revealAllBombs();
 
                         // tolgo il numero dalla cella (per mostrare la bomba)
                         newCell.innerHTML = "";
@@ -145,6 +142,9 @@ startButton.addEventListener("click",
                         // vittoria
                         if (score == maxScore) {
                             console.log("Complimenti, hai vinto!");
+
+                            // Mostra tutte le bombe
+                            revealAllBombs();
 
                             // mostro la schermata di vittoria
                             gameOver.classList.replace("d-none", "d-flex");
@@ -189,4 +189,20 @@ function bombMaker(size) {
 // riavviare la partita dopo il game over
 function playAgain() {
     location.reload();
+}
+
+// BONUS che ha distrutto tutte le mie convinzioni tanto da dover ricorrere all'AI per farmi spiegare un metodo che mi permettesse di fare questa cosa
+
+function revealAllBombs() {
+    // ottengo tutte le celle
+    const cells = document.querySelectorAll('.square');
+
+    // per ogni cella
+    cells.forEach((cell, index) => {
+        // se la cella è una bomba
+        if (bombCells.includes(index + 1)) {
+            // aggiungo una classe 'bomb' alla cella
+            cell.classList.add('bomb');
+        }
+    });
 }

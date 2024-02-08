@@ -93,7 +93,7 @@
 .square.active {
     background-color: #4AFFC1;
     color: #0F152B;
-    cursor: not-allowed;
+    cursor: default;
 }
 
 .square.bomb {
