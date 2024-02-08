@@ -19,6 +19,11 @@ const difficultyEl = document.querySelector("#difficulty");
 const bombCells = [];
 const bombNumber = 16;
 
+let score = 0;
+let maxScore;
+
+let bombClicked = false;
+
 // difficoltà di default su "easy"
 let selectedValue = difficultyEl.value;
 console.log(selectedValue);
@@ -64,7 +69,8 @@ startButton.addEventListener("click",
         // genero i numeri delle celle bomba
         bombMaker(gridSize);
 
-
+        // decreto il punteggio massimo
+        maxScore = gridSize - bombNumber;
 
         // generazione griglia
         for (let i = 0; i < gridSize; i++) {
@@ -106,6 +112,8 @@ startButton.addEventListener("click",
                     if (bombCells.includes(i + 1)) {
                         console.log("Puff!");
 
+                        // il flag diventa true (utile per decretare la fine del gioco)
+                        bombClicked = true;
                         newCell.classList.add("bomb");
                         newCell.innerHTML = "";
                     }
@@ -114,6 +122,13 @@ startButton.addEventListener("click",
                     else {
                         // coloro la casella al click
                         newCell.classList.add("active");
+                        score++;
+                        console.log("Punteggio: ", score);
+
+                        // vittoria
+                        if (score == maxScore) {
+                            console.log("Complimenti, hai vinto!")
+                        }
                     }
 
                 }
@@ -124,11 +139,12 @@ startButton.addEventListener("click",
 
         }
 
+
     }
+
 )
 
-
-// generazione array con bombe in base alla grandezza della griglia
+// genero array con bombe in base alla grandezza della griglia
 function bombMaker(size) {
 
     while (bombCells.length < bombNumber) {
@@ -143,5 +159,4 @@ function bombMaker(size) {
     }
     console.log("Bombe: ", bombCells);
 }
-
 
