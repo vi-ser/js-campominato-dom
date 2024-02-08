@@ -1,3 +1,7 @@
+.body {
+    position: relative;
+}
+
 .my_height80 {
     height: 80px;
 }
@@ -9,6 +13,18 @@
 }
 
 #start:not(:hover) {
+    background-color: #0F152B;
+    color: #4AFFC1;
+    transition: ease .3s;
+}
+
+#restart:hover {
+    background-color: #4AFFC1;
+    color: #0F152B;
+    transition: ease .3s;
+}
+
+#restart:not(:hover) {
     background-color: #0F152B;
     color: #4AFFC1;
     transition: ease .3s;
@@ -85,6 +101,19 @@
     background-image: url("../img/bomb.svg");
     background-size: contain;
 }
+
+#gameover {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 0, 98, 0.8);
+
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
 
 /* media query */
 

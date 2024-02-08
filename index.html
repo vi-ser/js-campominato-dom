@@ -42,7 +42,7 @@
 
     <div class="container text-white">
         <div class="row d-flex flex-column flex-md-row justify-content-start p-5">
-            <div class="col d-flex justify-content-center gap-3">
+            <div class="col d-flex justify-content-center gap-3 fs-4">
                 <strong>Punteggio:</strong>
                 <strong id="score">00000</strong>
             </div>
@@ -50,10 +50,15 @@
     </div>
 
 
-    <div class="container d-flex justify-content-center mt-1 p-1">
+    <div class="container d-flex justify-content-center mt-1 px-3 py-1">
         <div id="grid" class="d-flex flex-wrap">
 
         </div>
+    </div>
+
+    <div id="gameover" class="d-none flex-column justify-content-center align-items-center">
+        <p class="text-white fs-1">YOU LOST THE GAME.</p>
+        <input id="restart" type="button" class="px-5 py-1 rounded-2 my_bgblue my_colorgreen border-0" value="Restart">
     </div>
 
 

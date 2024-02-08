@@ -16,6 +16,8 @@ const gridElement = document.querySelector("#grid");
 const startButton = document.querySelector("#start");
 const difficultyEl = document.querySelector("#difficulty");
 const scoreEl = document.querySelector("#score");
+const gameOver = document.querySelector("#gameover");
+const restartEl = document.querySelector("#restart");
 
 const bombCells = [];
 const bombNumber = 16;
@@ -117,6 +119,9 @@ startButton.addEventListener("click",
                         bombClicked = true;
                         newCell.classList.add("bomb");
                         newCell.innerHTML = "";
+                        gameOver.classList.replace("d-none", "d-flex");
+
+                        restartEl.addEventListener("click", playAgain);
                     }
 
                     // se non lo è
@@ -129,7 +134,7 @@ startButton.addEventListener("click",
 
                         // vittoria
                         if (score == maxScore) {
-                            console.log("Complimenti, hai vinto!")
+                            console.log("Complimenti, hai vinto!");
                         }
                     }
 
@@ -162,3 +167,7 @@ function bombMaker(size) {
     console.log("Bombe: ", bombCells);
 }
 
+
+function playAgain() {
+    location.reload();
+}
