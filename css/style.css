@@ -1,0 +1,137 @@
+.my_height80 {
+    height: 80px;
+}
+
+#start:hover {
+    background-color: #4AFFC1;
+    color: #0F152B;
+    transition: ease .3s;
+}
+
+#start:not(:hover) {
+    background-color: #0F152B;
+    color: #4AFFC1;
+    transition: ease .3s;
+}
+
+.my_bgblue {
+    background-color: #0F152B;
+}
+
+.my_bggreen {
+    background-color: #4AFFC1;
+}
+
+.my_colorblue {
+    color: #0F152B;
+}
+
+.my_colorgreen {
+    color: #4AFFC1;
+}
+
+#grid {
+    width: 100vw;
+    aspect-ratio: 1 / 1;
+}
+
+#grid.medium {
+    width: 100vw;
+    aspect-ratio: 1 / 1;
+}
+
+#grid.hard {
+    width: 100vw;
+    aspect-ratio: 1 / 1;
+}
+
+.square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 10%;
+    aspect-ratio: 1 / 1;
+    border: solid 1px #4AFFC1;
+    color: #4AFFC1;
+
+    cursor: pointer;
+    user-select: none;
+}
+
+.square.medium {
+    width: calc(100% / 9);
+    aspect-ratio: 1 / 1;
+}
+
+.square.hard {
+    width: calc(100% / 7);
+    aspect-ratio: 1 / 1;
+}
+
+.square:hover {
+    background-color: white;
+    color: #0F152B;
+}
+
+.square.active {
+    background-color: #4AFFC1;
+    color: #0F152B;
+}
+
+.square.square.active:hover {
+    background-color: #4affc09e;
+    color: #0F152B;
+}
+
+/* media query */
+
+/* small */
+@media screen and (min-width: 576px) {
+
+    #grid {
+        width: 80vw;
+    }
+
+    #grid.medium {
+        width: 80vw;
+    }
+
+    #grid.hard {
+        width: 80vw;
+    }
+
+}
+
+/* medium */
+@media screen and (min-width: 768px) {
+
+    #grid {
+        width: 60vw;
+    }
+
+    #grid.medium {
+        width: 60vw;
+    }
+
+    #grid.hard {
+        width: 60vw;
+    }
+}
+
+/* large */
+@media screen and (min-width: 992px) {
+
+    #grid {
+        width: 40vw;
+    }
+
+    #grid.medium {
+        width: 40vw;
+    }
+
+    #grid.hard {
+        width: 40vw;
+    }
+
+}
