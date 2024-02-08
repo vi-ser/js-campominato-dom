@@ -77,11 +77,7 @@
 .square.active {
     background-color: #4AFFC1;
     color: #0F152B;
-}
-
-.square.square.active:hover {
-    background-color: #4affc09e;
-    color: #0F152B;
+    cursor: not-allowed;
 }
 
 /* media query */
