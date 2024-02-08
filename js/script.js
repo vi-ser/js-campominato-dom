@@ -39,7 +39,6 @@ startButton.addEventListener("click",
         gridElement.classList.remove("medium");
         gridElement.classList.remove("hard");
 
-
         // rimuovo griglia precedente (se c'è)
         gridElement.innerHTML = "";
 
@@ -64,6 +63,8 @@ startButton.addEventListener("click",
 
         // genero i numeri delle celle bomba
         bombMaker(gridSize);
+
+
 
         // generazione griglia
         for (let i = 0; i < gridSize; i++) {
@@ -92,23 +93,35 @@ startButton.addEventListener("click",
                 newCell.classList.add("hard");
             }
 
-
             // inserisco numero progressivo
             newCell.innerText = [i + 1];
 
-
+            // aggiungo evento alla cella creata
             newCell.addEventListener("click",
                 function () {
 
-                    console.log(this);
-                    // coloro la casella al click
-                    newCell.classList.add("active");
+                    console.log(this.innerText);
+
+                    // se è una bomba
+                    if (bombCells.includes(i + 1)) {
+                        console.log("Puff!");
+
+                        newCell.classList.add("bomb");
+                        newCell.innerHTML = "";
+                    }
+
+                    // se non lo è
+                    else {
+                        // coloro la casella al click
+                        newCell.classList.add("active");
+                    }
 
                 }
             )
 
             // aggiungo cella alla griglia
             gridElement.append(newCell);
+
         }
 
     }
