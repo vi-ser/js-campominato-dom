@@ -119,28 +119,40 @@ startButton.addEventListener("click",
                         // il flag diventa true (utile per decretare la fine del gioco)
                         bombClicked = true;
                         newCell.classList.add("bomb");
+
+                        // tolgo il numero dalla cella (per mostrare la bomba)
                         newCell.innerHTML = "";
+
+                        // mostro la schermata di sconfitta
                         gameOver.classList.replace("d-none", "d-flex");
 
+                        // riavvio il gioco
                         restartEl.addEventListener("click", playAgain);
                     }
 
                     // se non lo è
                     else {
-                        // coloro la casella al click
-                        newCell.classList.add("active");
-                        score++;
-                        scoreEl.innerHTML = score.toString().padStart(5, "0");
+                        // controllo che la cella non sia stata cliccata
+                        if (!newCell.classList.contains("active")) {
+
+                            // coloro la casella al click
+                            newCell.classList.add("active");
+                            score++;
+
+                            scoreEl.innerHTML = score.toString().padStart(5, "0");
+                        }
 
                         // vittoria
                         if (score == maxScore) {
                             console.log("Complimenti, hai vinto!");
 
+                            // mostro la schermata di vittoria
                             gameOver.classList.replace("d-none", "d-flex");
                             gameOver.style.backgroundColor = "#4affc0c9";
                             textGameOver.innerHTML = "CONGRATULATION, YOU WIN!";
                             textGameOver.classList.replace("text-white", "my_colorblue");
 
+                            // riavvio il gioco
                             restartEl.addEventListener("click", playAgain);
                         }
                     }
@@ -174,7 +186,7 @@ function bombMaker(size) {
     console.log("Bombe in ordine crescente:", bombCells.sort((a, b) => a - b));
 }
 
-
+// riavviare la partita dopo il game over
 function playAgain() {
     location.reload();
 }
